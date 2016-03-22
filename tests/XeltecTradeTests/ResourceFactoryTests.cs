@@ -67,6 +67,17 @@ namespace XeltecTradeTests
         }
 
         [Fact]
+        public void throwsArgumentNullExceptionWhenConstructedWithNullLocation()
+        {
+            autoMocker.Use<ILocation>((ILocation)null);
+            var exception = Record.Exception(() => autoMocker.CreateInstance<ResourceFactory>());
+
+            Assert.NotNull(exception);
+            Assert.IsType<ArgumentNullException>(exception);
+            Assert.Equal("location", ((ArgumentNullException)exception).ParamName);
+        }
+
+        [Fact]
         public void ResourceFactoryUsesStartingCreditsFromProvidedResourceFactoryConfiguration()
         {
             double stubStartingCredits = 100;

@@ -8,7 +8,7 @@ namespace Xeltec.Trade
 
     public class ResourceFactory : IResourceFactory
     {
-        public ResourceFactory(IList<IProduction<ITradeItem>> production, IList<ITradableStock<ITradeItem>> tradableStock, IResourceFactoryConfiguration resourceFactoryConfiguration)
+        public ResourceFactory(IList<IProduction<ITradeItem>> production, IList<ITradableStock<ITradeItem>> tradableStock, IResourceFactoryConfiguration resourceFactoryConfiguration, ILocation location)
         {
             if(production == null)
             {
@@ -25,6 +25,11 @@ namespace Xeltec.Trade
                 throw new ArgumentNullException(nameof(resourceFactoryConfiguration));
             }
 
+            if(location == null)
+            {
+                throw new ArgumentNullException(nameof(location));
+            }
+
             TradableStockItems = tradableStock;
             Production = production;
             Credits = resourceFactoryConfiguration.StartingCredits;
@@ -32,9 +37,9 @@ namespace Xeltec.Trade
 
         public double Credits { get; set; }
 
-        public IList<ITradableStock<ITradeItem>> TradableStockItems { get; private set; }
-
         public IList<IProduction<ITradeItem>> Production { get; private set; }
+
+        public IList<ITradableStock<ITradeItem>> TradableStockItems { get; private set; }
 
         public ILocation Location { get; private set; }
     }

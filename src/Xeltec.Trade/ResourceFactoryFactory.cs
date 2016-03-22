@@ -8,14 +8,14 @@ namespace Xeltec.Trade
 {
     public class ResourceFactoryFactory : IResourceFactoryFactory
     {
-        public IResourceFactory Create(IResourceFactoryConfiguration resourceFactoryStartingConfiguration)
+        public IResourceFactory Create(IResourceFactoryConfiguration resourceFactoryStartingConfiguration, ILocation location)
         {
             IProduction<ITradeItem> test = new Production<ITradeItem>(new Power(), 5.0);
 
             IList<IProduction<ITradeItem>> productionList = new List<IProduction<ITradeItem>>();
             productionList.Add(test);
 
-            var resourceFactory = new ResourceFactory(productionList, null, resourceFactoryStartingConfiguration);
+            var resourceFactory = new ResourceFactory(productionList, null, resourceFactoryStartingConfiguration, location);
 
             return resourceFactory;
         }
@@ -53,7 +53,9 @@ namespace Xeltec.Trade
                 IList<ITradableStock<ITradeItem>> tradableStockList = new List<ITradableStock<ITradeItem>>();
                 tradableStockList.Add(new TradableStock<ITradeItem>(new Power()));
 
-                var resourceFactory = new ResourceFactory(productionList, tradableStockList, resourceFactoryStartingConfiguration);
+                var location = new Location(random.Next(0, 100), random.Next(0, 100));
+
+                var resourceFactory = new ResourceFactory(productionList, tradableStockList, resourceFactoryStartingConfiguration, location);
                 resourceFactories.Add(resourceFactory);
             }
 
