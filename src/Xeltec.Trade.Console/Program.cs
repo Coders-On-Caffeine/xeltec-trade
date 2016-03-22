@@ -3,6 +3,9 @@ namespace Xeltec.Trade.Console
 {
     using System;
 
+    using Xeltec.Trade.Factories;
+    using Xeltec.Trade.Interfaces;
+
     public class Program
     {
         private ITradeNetwork TradeNetwork;
@@ -33,7 +36,7 @@ namespace Xeltec.Trade.Console
         {
             foreach(var f in TradeNetwork.Factories)
             {
-                Console.WriteLine(string.Format("Credits: {0}", f.Credits));
+                Console.WriteLine(string.Format("Factory at [{0},{1}] has Credits: {2}", f.Location.X, f.Location.Y, f.Credits));
                 foreach(var resourceProduced in f.Production)
                 {
                     Console.WriteLine(String.Format(" - Makes {0} units of {1}", resourceProduced.UnitsProducedPerTick, resourceProduced.TradeItem.Description));

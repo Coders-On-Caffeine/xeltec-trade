@@ -3,12 +3,15 @@
 
 namespace XeltecTradeTests
 {
+    using System;
+    using System.Collections.Generic;
+
     using Xeltec.Trade;
+    using Xeltec.Trade.Interfaces;
 
     using Moq.AutoMock;
     using Xunit;
-    using System.Collections.Generic;
-    using System;
+    
     public class TradeNetworkTests
     {
         private AutoMocker autoMocker;

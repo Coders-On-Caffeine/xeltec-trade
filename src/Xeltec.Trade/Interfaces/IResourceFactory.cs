@@ -1,8 +1,8 @@
 ﻿
-namespace Xeltec.Trade
+namespace Xeltec.Trade.Interfaces
 {
     using System.Collections.Generic;
-    using Xeltec.Trade.TradeResources;
+    using Xeltec.Trade.Interfaces.TradeResources;
 
     public interface IResourceFactory
     {

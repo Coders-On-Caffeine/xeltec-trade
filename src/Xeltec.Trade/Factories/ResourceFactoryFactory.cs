@@ -1,21 +1,24 @@
 ﻿
-
-using System;
-using System.Collections.Generic;
-using Xeltec.Trade.TradeResources;
-
-namespace Xeltec.Trade
+namespace Xeltec.Trade.Factories
 {
+    using System;
+    using System.Collections.Generic;
+    
+    using Xeltec.Trade.Interfaces;
+    using Xeltec.Trade.Interfaces.Factories;
+    using Xeltec.Trade.Interfaces.TradeResources;
+    using Xeltec.Trade.TradeResources;
+
     public class ResourceFactoryFactory : IResourceFactoryFactory
     {
-        public IResourceFactory Create(IResourceFactoryStartingConfiguration resourceFactoryStartingConfiguration)
+        public IResourceFactory Create(IResourceFactoryConfiguration resourceFactoryStartingConfiguration, ILocation location)
         {
-            IProduction<ITradeItem> test = new Production<ITradeItem>(new Power(), 5.0);
+            IProduction<ITradeItem> test = new Production(new Power(), 5.0);
 
             IList<IProduction<ITradeItem>> productionList = new List<IProduction<ITradeItem>>();
             productionList.Add(test);
 
-            var resourceFactory = new ResourceFactory(productionList, null, resourceFactoryStartingConfiguration);
+            var resourceFactory = new ResourceFactory(productionList, null, resourceFactoryStartingConfiguration, location);
 
             return resourceFactory;
         }
@@ -24,8 +27,8 @@ namespace Xeltec.Trade
         {
             var resourceFactories = new List<IResourceFactory>();
             var random = new Random(12345);
-            var resourceFactoryStartingConfiguration = new ResourceFactoryStartingConfiguration();
-
+            var resourceFactoryStartingConfiguration = new ResourceFactoryConfiguration();
+            var productionFactory = new ProductionFactory();
             for (int i = 0; i < count; i++)
             {
                 var startingCredits = random.Next(5000, 10000);
@@ -34,17 +37,17 @@ namespace Xeltec.Trade
                 switch (random.Next(1, 4))
                 {
                     case 1:
-                        test = new Production<ITradeItem>(new Food(), random.Next(1, 10));
+
+                        test = productionFactory.Create(new Food());
                         break;
                     case 2:
-                        test = new Production<ITradeItem>(new Power(), random.Next(1, 10));
+                        test = productionFactory.Create(new Power()); 
                         break;
                     case 3:
-                        test = new Production<ITradeItem>(new Water(), random.Next(1, 10));
+                        test = productionFactory.Create(new Water()); 
                         break;
                     default:
-                        test = null;
-                        break;
+                        throw new InvalidOperationException();
                 }
 
                 IList<IProduction<ITradeItem>> productionList = new List<IProduction<ITradeItem>>();
@@ -53,7 +56,9 @@ namespace Xeltec.Trade
                 IList<ITradableStock<ITradeItem>> tradableStockList = new List<ITradableStock<ITradeItem>>();
                 tradableStockList.Add(new TradableStock<ITradeItem>(new Power()));
 
-                var resourceFactory = new ResourceFactory(productionList, tradableStockList, resourceFactoryStartingConfiguration);
+                var location = new Location(random.Next(0, 100), random.Next(0, 100));
+
+                var resourceFactory = new ResourceFactory(productionList, tradableStockList, resourceFactoryStartingConfiguration, location);
                 resourceFactories.Add(resourceFactory);
             }
 
