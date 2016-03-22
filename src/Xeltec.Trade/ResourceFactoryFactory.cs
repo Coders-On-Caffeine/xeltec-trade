@@ -8,7 +8,7 @@ namespace Xeltec.Trade
 {
     public class ResourceFactoryFactory : IResourceFactoryFactory
     {
-        public IResourceFactory Create(IResourceFactoryStartingConfiguration resourceFactoryStartingConfiguration)
+        public IResourceFactory Create(IResourceFactoryConfiguration resourceFactoryStartingConfiguration)
         {
             IProduction<ITradeItem> test = new Production<ITradeItem>(new Power(), 5.0);
 
@@ -24,7 +24,7 @@ namespace Xeltec.Trade
         {
             var resourceFactories = new List<IResourceFactory>();
             var random = new Random(12345);
-            var resourceFactoryStartingConfiguration = new ResourceFactoryStartingConfiguration();
+            var resourceFactoryStartingConfiguration = new ResourceFactoryConfiguration();
 
             for (int i = 0; i < count; i++)
             {

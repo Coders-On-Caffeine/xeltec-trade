@@ -41,12 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IResourceFactoryFactory.cs" />
-    <Compile Include="IResourceFactoryStartingConfiguration.cs" />
+    <Compile Include="IResourceFactoryConfiguration.cs" />
     <Compile Include="ITradableStock.cs" />
     <Compile Include="IProduction.cs" />
     <Compile Include="Production.cs" />
     <Compile Include="ResourceFactoryFactory.cs" />
-    <Compile Include="ResourceFactoryStartingConfiguration.cs" />
+    <Compile Include="ResourceFactoryConfiguration.cs" />
     <Compile Include="TradableStock.cs" />
     <Compile Include="TradeResources\Food.cs" />
     <Compile Include="ResourceFactory.cs" />

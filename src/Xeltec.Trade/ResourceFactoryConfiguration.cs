@@ -1,7 +1,7 @@
 ﻿
 namespace Xeltec.Trade
 {
-    class ResourceFactoryStartingConfiguration : IResourceFactoryStartingConfiguration
+    public class ResourceFactoryConfiguration : IResourceFactoryConfiguration
     {
         public double StartingCredits => 10000;
     }
