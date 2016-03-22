@@ -1,7 +1,11 @@
 ﻿
 namespace XeltecTradeTests
 {
+    using System;
+    using System.Collections.Generic;
+
     using Xeltec.Trade;
+    using Xeltec.Trade.TradeResources;
 
     using Moq.AutoMock;
     using Xunit;
@@ -28,5 +32,17 @@ namespace XeltecTradeTests
             var sut = autoMocker.CreateInstance<ResourceFactory>();
             Assert.IsAssignableFrom<IResourceFactory>(sut);
         }
+
+        [Fact]
+        public void ThrowsArgumentNullExceptionWhenConstructedWithNullProductionList()
+        {
+            autoMocker.Use<IList<IProduction<ITradeItem>>>((IList<IProduction<ITradeItem>>)null);
+            var exception = Record.Exception(() => autoMocker.CreateInstance<ResourceFactory>());
+
+            Assert.NotNull(exception);
+            Assert.IsType<ArgumentNullException>(exception);
+            Assert.Equal("production", ((ArgumentNullException)exception).ParamName);
+        }
+
     }
 }

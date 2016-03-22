@@ -1,6 +1,7 @@
 ﻿
 namespace Xeltec.Trade
 {
+    using System;
     using System.Collections.Generic;
 
     using Xeltec.Trade.TradeResources;
@@ -9,6 +10,11 @@ namespace Xeltec.Trade
     {
         public ResourceFactory(IList<IProduction<ITradeItem>> production, IList<ITradableStock<ITradeItem>> tradableStock, IResourceFactoryStartingConfiguration resourceFactoryStartingConfiguration)
         {
+            if(production == null)
+            {
+                throw new ArgumentNullException(nameof(production));
+            }
+
             TradableStockItems = tradableStock;
             Production = production;
             Credits = resourceFactoryStartingConfiguration.StartingCredits;
