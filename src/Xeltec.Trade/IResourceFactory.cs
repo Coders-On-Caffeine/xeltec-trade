@@ -8,7 +8,7 @@ namespace Xeltec.Trade
     {
         double Credits { get; set; }
         ILocation Location { get; }
-        IList<ITradeItem> TradeItems { get; }
+        IList<ITradableStock<ITradeItem>> TradableStockItems { get; }
         IList<IProduction<ITradeItem>> Production { get; }
     }
 }

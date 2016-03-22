@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\xeltec-trade\Xeltec.Trade.csproj">
+    <ProjectReference Include="..\Xeltec.Trade\Xeltec.Trade.csproj">
       <Project>{2e3d441f-9ed7-4e7f-81b6-c4c7d633409e}</Project>
       <Name>Xeltec.Trade</Name>
     </ProjectReference>

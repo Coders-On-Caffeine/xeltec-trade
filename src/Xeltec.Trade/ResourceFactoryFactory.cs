@@ -6,7 +6,7 @@ using Xeltec.Trade.TradeResources;
 
 namespace Xeltec.Trade
 {
-    public class ResourceFactoryFactory
+    public class ResourceFactoryFactory : IResourceFactoryFactory
     {
         public IResourceFactory Create(double startingCredits)
         {
@@ -15,7 +15,7 @@ namespace Xeltec.Trade
             IList<IProduction<ITradeItem>> productionList = new List<IProduction<ITradeItem>>();
             productionList.Add(test);
 
-            var resourceFactory = new ResourceFactory(productionList, startingCredits);
+            var resourceFactory = new ResourceFactory(productionList, null, startingCredits);
 
             return resourceFactory;
         }
@@ -23,14 +23,14 @@ namespace Xeltec.Trade
         public IList<IResourceFactory> CreateRandom(int count)
         {
             var resourceFactories = new List<IResourceFactory>();
-            var random = new Random();
+            var random = new Random(12345);
 
             for (int i = 0; i < count; i++)
             {
                 var startingCredits = random.Next(5000, 10000);
-                IProduction<ITradeItem> test = null;
+                IProduction<ITradeItem> test;
 
-                switch (random.Next(1, 3))
+                switch (random.Next(1, 4))
                 {
                     case 1:
                         test = new Production<ITradeItem>(new Food(), random.Next(1, 10));
@@ -41,12 +41,18 @@ namespace Xeltec.Trade
                     case 3:
                         test = new Production<ITradeItem>(new Water(), random.Next(1, 10));
                         break;
+                    default:
+                        test = null;
+                        break;
                 }
 
                 IList<IProduction<ITradeItem>> productionList = new List<IProduction<ITradeItem>>();
                 productionList.Add(test);
 
-                var resourceFactory = new ResourceFactory(productionList, startingCredits);
+                IList<ITradableStock<ITradeItem>> tradableStockList = new List<ITradableStock<ITradeItem>>();
+                tradableStockList.Add(new TradableStock<ITradeItem>(new Power()));
+
+                var resourceFactory = new ResourceFactory(productionList, tradableStockList, startingCredits);
                 resourceFactories.Add(resourceFactory);
             }
 

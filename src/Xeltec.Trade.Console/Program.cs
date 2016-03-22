@@ -17,7 +17,7 @@ namespace Xeltec.Trade.Console
         {
             var ResourceFactoryFactory = new ResourceFactoryFactory();
             
-            var factoryList = ResourceFactoryFactory.CreateRandom(100);
+            var factoryList = ResourceFactoryFactory.CreateRandom(10);
 
             TradeNetwork = new TradeNetwork(factoryList);
         }
