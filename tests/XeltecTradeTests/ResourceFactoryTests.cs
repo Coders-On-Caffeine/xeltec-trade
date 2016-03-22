@@ -67,7 +67,7 @@ namespace XeltecTradeTests
         }
 
         [Fact]
-        public void throwsArgumentNullExceptionWhenConstructedWithNullLocation()
+        public void ThrowsArgumentNullExceptionWhenConstructedWithNullLocation()
         {
             autoMocker.Use<ILocation>((ILocation)null);
             var exception = Record.Exception(() => autoMocker.CreateInstance<ResourceFactory>());
@@ -75,6 +75,27 @@ namespace XeltecTradeTests
             Assert.NotNull(exception);
             Assert.IsType<ArgumentNullException>(exception);
             Assert.Equal("location", ((ArgumentNullException)exception).ParamName);
+        }
+
+        [Fact]
+        public void ResourceFactoryUsesProvidedProductionList()
+        {
+            var mockProduction1 = autoMocker.GetMock<IProduction<ITradeItem>>();
+            var mockProduction2 = autoMocker.GetMock<IProduction<ITradeItem>>();
+
+            var stubProductionList = new List<IProduction<ITradeItem>>()
+            {
+                mockProduction1.Object,
+                mockProduction2.Object
+            };
+
+            autoMocker.Use<IList<IProduction<ITradeItem>>>(stubProductionList);
+
+            var sut = autoMocker.CreateInstance<ResourceFactory>();
+
+            Assert.Equal(stubProductionList.Count, sut.Production.Count);
+            Assert.Contains<IProduction<ITradeItem>>(mockProduction1.Object, sut.Production);
+            Assert.Contains<IProduction<ITradeItem>>(mockProduction2.Object, sut.Production);
         }
 
         [Fact]
