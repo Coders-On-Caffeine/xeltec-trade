@@ -4,7 +4,7 @@ namespace Xeltec.Trade
 {
     public interface IResourceFactoryFactory
     {
-        IResourceFactory Create(double startingCredits);
+        IResourceFactory Create(IResourceFactoryStartingConfiguration resourceFactoryStartingConfiguration);
         IList<IResourceFactory> CreateRandom(int count);
     }
 }

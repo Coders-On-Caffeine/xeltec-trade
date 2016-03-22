@@ -12,7 +12,7 @@ namespace XeltecTradeTests
 
         public ResourceFactoryTests()
         {
-            autoMocker = new AutoMocker();
+            autoMocker = new AutoMocker(Moq.MockBehavior.Loose);
         }
 
         [Fact]
@@ -20,6 +20,13 @@ namespace XeltecTradeTests
         {
             var sut = autoMocker.CreateInstance<ResourceFactory>();
             Assert.NotNull(sut);
+        }
+
+        [Fact]
+        public void ResourceFactoryImplementsExpectedInterface()
+        {
+            var sut = autoMocker.CreateInstance<ResourceFactory>();
+            Assert.IsAssignableFrom<IResourceFactory>(sut);
         }
     }
 }

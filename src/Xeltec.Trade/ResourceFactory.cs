@@ -7,11 +7,11 @@ namespace Xeltec.Trade
 
     public class ResourceFactory : IResourceFactory
     {
-        public ResourceFactory(IList<IProduction<ITradeItem>> production, IList<ITradableStock<ITradeItem>> tradableStock, double startingCredits)
+        public ResourceFactory(IList<IProduction<ITradeItem>> production, IList<ITradableStock<ITradeItem>> tradableStock, IResourceFactoryStartingConfiguration resourceFactoryStartingConfiguration)
         {
             TradableStockItems = tradableStock;
             Production = production;
-            Credits = startingCredits;
+            Credits = resourceFactoryStartingConfiguration.StartingCredits;
         }
 
         public double Credits { get; set; }
