@@ -71,6 +71,7 @@
     <Compile Include="LocationTests.cs" />
     <Compile Include="PowerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceFactoryTests.cs" />
     <Compile Include="TradeNetworkTests.cs" />
   </ItemGroup>
   <ItemGroup>
