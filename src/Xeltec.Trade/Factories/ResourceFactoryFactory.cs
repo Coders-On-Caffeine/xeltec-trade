@@ -13,7 +13,7 @@ namespace Xeltec.Trade.Factories
     {
         public IResourceFactory Create(IResourceFactoryConfiguration resourceFactoryStartingConfiguration, ILocation location)
         {
-            IProduction<ITradeItem> test = new Production(new Power(), 5.0);
+            IProduction<ITradeItem> test = new Production(new Power(), 5.0, new List<IProductionRequires>());
 
             IList<IProduction<ITradeItem>> productionList = new List<IProduction<ITradeItem>>();
             productionList.Add(test);
