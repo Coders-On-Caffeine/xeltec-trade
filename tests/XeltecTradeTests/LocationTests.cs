@@ -2,11 +2,12 @@
 namespace XeltecTradeTests
 {
     using Xeltec.Trade;
+    using Xeltec.Trade.Interfaces;
 
     using Moq;
     using Moq.AutoMock;
     using Xunit;
-    using Xeltec.Trade.Interfaces;
+    
     public class LocationTests
     {
         private AutoMocker autoMocker;
@@ -40,6 +41,7 @@ namespace XeltecTradeTests
         [InlineData(0, 0, 0, 1, 1)]
         [InlineData(0, 0, 1, 0, 1)]
         [InlineData(0, 0, 3, 4, 5)]
+        [InlineData(1, 1, 1, 1, 0)]
         public void CanDetermineDistanceBetweenLocations(int x1, int y1, int x2, int y2, double expectedDistance)
         {
             var sut = new Mock<Location>(x1, y1);
