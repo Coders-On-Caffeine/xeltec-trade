@@ -1,6 +1,7 @@
 ﻿
 namespace Xeltec.Trade.TradeResources
 {
+    using Xeltec.Trade.Interfaces.TradeResources;
 
     public class Power : ITradeItem
     {

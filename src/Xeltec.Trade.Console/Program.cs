@@ -3,6 +3,9 @@ namespace Xeltec.Trade.Console
 {
     using System;
 
+    using Xeltec.Trade.Factories;
+    using Xeltec.Trade.Interfaces;
+
     public class Program
     {
         private ITradeNetwork TradeNetwork;

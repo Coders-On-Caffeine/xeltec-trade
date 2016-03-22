@@ -1,6 +1,8 @@
 ﻿
 namespace Xeltec.Trade.TradeResources
 {
+    using Xeltec.Trade.Interfaces.TradeResources;
+
     public class Food : ITradeItem
     {
         public string Description => "Food";

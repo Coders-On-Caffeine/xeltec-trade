@@ -1,5 +1,5 @@
 ﻿
-namespace Xeltec.Trade.TradeResources
+namespace Xeltec.Trade.Interfaces.TradeResources
 {
     public interface ITradeItem
     {

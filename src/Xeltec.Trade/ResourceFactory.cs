@@ -4,7 +4,8 @@ namespace Xeltec.Trade
     using System;
     using System.Collections.Generic;
 
-    using Xeltec.Trade.TradeResources;
+    using Xeltec.Trade.Interfaces;
+    using Xeltec.Trade.Interfaces.TradeResources;
 
     public class ResourceFactory : IResourceFactory
     {
