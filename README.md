@@ -1,2 +1,2 @@
 # xeltec-trade
-Initial tinkering with development of a web/mobile based trade simulation game
+Initial tinkering with development of a trade simulation game
