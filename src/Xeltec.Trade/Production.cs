@@ -1,13 +1,11 @@
 ﻿
 namespace Xeltec.Trade
 {
-    using System;
-
     using Xeltec.Trade.TradeResources;
 
-    public class Production<ITradeItem> : IProduction<ITradeItem>
+    public class Production<T> : IProduction<T> where T : ITradeItem
     {
-        public Production(ITradeItem tradeItem, double unitsProducedPerTick)
+        public Production(T tradeItem, double unitsProducedPerTick)
         {
             TradeItem = tradeItem;
             UnitsProducedPerTick = unitsProducedPerTick;
@@ -18,6 +16,6 @@ namespace Xeltec.Trade
             get; private set;
         }
 
-        public ITradeItem TradeItem { get; private set; }
+        public T TradeItem { get; private set; }
     }
 }

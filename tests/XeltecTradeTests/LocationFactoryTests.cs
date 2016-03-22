@@ -1,7 +1,7 @@
 ﻿
 namespace XeltecTradeTests
 {
-    using Xeltec.Trade;
+    using Xeltec.Trade.Factories;
 
     using Moq.AutoMock;
     using Xunit;

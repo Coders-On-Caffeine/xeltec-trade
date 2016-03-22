@@ -1,5 +1,5 @@
 ﻿
-namespace Xeltec.Trade
+namespace Xeltec.Trade.Factories
 {
     public class LocationFactory : ILocationFactory
     {

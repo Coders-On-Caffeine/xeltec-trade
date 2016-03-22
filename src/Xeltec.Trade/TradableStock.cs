@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xeltec.Trade.TradeResources;
-
+﻿
 namespace Xeltec.Trade
 {
-    public class TradableStock<T> : ITradableStock<T>
+    using Xeltec.Trade.TradeResources;
+
+    public class TradableStock<T> : ITradableStock<T> where T : ITradeItem
     {
         public TradableStock(T tradeItem)
         {

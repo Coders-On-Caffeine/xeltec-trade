@@ -1,10 +1,12 @@
 ﻿
 namespace Xeltec.Trade
 {
-    public interface ITradableStock<ITradeItem>
+    using Xeltec.Trade.TradeResources;
+
+    public interface ITradableStock<T>
     {
         double QuantityInStock { get; }
         double PricePerUnit { get; }
-        ITradeItem TradeItem { get; }
+        T TradeItem { get; }
     }
 }

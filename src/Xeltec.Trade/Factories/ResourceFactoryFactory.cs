@@ -1,11 +1,11 @@
 ﻿
-
-using System;
-using System.Collections.Generic;
-using Xeltec.Trade.TradeResources;
-
-namespace Xeltec.Trade
+namespace Xeltec.Trade.Factories
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Xeltec.Trade.TradeResources;
+
     public class ResourceFactoryFactory : IResourceFactoryFactory
     {
         public IResourceFactory Create(IResourceFactoryConfiguration resourceFactoryStartingConfiguration, ILocation location)
