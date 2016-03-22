@@ -94,8 +94,29 @@ namespace XeltecTradeTests
             var sut = autoMocker.CreateInstance<ResourceFactory>();
 
             Assert.Equal(stubProductionList.Count, sut.Production.Count);
-            Assert.Contains<IProduction<ITradeItem>>(mockProduction1.Object, sut.Production);
-            Assert.Contains<IProduction<ITradeItem>>(mockProduction2.Object, sut.Production);
+            Assert.Contains(mockProduction1.Object, sut.Production);
+            Assert.Contains(mockProduction2.Object, sut.Production);
+        }
+
+        [Fact]
+        public void ResourceFactoryUsesProvidedTradableStockList()
+        {
+            var mockStockedItem1 = autoMocker.GetMock<ITradableStock<ITradeItem>>();
+            var mockStockedItem2 = autoMocker.GetMock<ITradableStock<ITradeItem>>();
+
+            var stubTradedStockList = new List<ITradableStock<ITradeItem>>()
+            {
+                mockStockedItem1.Object,
+                mockStockedItem2.Object
+            };
+
+            autoMocker.Use<IList<ITradableStock<ITradeItem>>>(stubTradedStockList);
+
+            var sut = autoMocker.CreateInstance<ResourceFactory>();
+
+            Assert.Equal(stubTradedStockList.Count, sut.TradableStockItems.Count);
+            Assert.Contains(mockStockedItem1.Object, sut.TradableStockItems);
+            Assert.Contains(mockStockedItem2.Object, sut.TradableStockItems);
         }
 
         [Fact]
