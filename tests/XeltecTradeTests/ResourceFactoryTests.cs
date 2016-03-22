@@ -88,5 +88,20 @@ namespace XeltecTradeTests
             var sut = autoMocker.CreateInstance<ResourceFactory>();
             Assert.Equal(stubStartingCredits, sut.Credits);
         }
+
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(10, 10)]
+        [InlineData(5,10)]
+        public void ResourceFactoryUsesProvidedLocation(int x, int y)
+        {
+            var stubLocation = new Location(x, y);
+            autoMocker.Use<ILocation>(stubLocation);
+
+            var sut = autoMocker.CreateInstance<ResourceFactory>();
+
+            Assert.NotNull(sut.Location);
+            Assert.Equal(stubLocation, sut.Location);
+        }
     }
 }

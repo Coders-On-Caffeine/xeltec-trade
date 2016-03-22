@@ -33,6 +33,7 @@ namespace Xeltec.Trade
             TradableStockItems = tradableStock;
             Production = production;
             Credits = resourceFactoryConfiguration.StartingCredits;
+            Location = location;
         }
 
         public double Credits { get; set; }
