@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Xeltec.Trade</RootNamespace>
-    <AssemblyName>xeltec-trade</AssemblyName>
+    <AssemblyName>xeltec.trade</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\ProductionFactory.cs" />
+    <Compile Include="Interfaces\Factories\IProductionFactory.cs" />
     <Compile Include="Interfaces\Factories\IResourceFactoryFactory.cs" />
     <Compile Include="Interfaces\IResourceFactoryConfiguration.cs" />
     <Compile Include="Interfaces\ITradableStock.cs" />

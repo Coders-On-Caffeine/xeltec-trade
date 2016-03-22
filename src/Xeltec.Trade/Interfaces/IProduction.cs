@@ -1,9 +1,9 @@
 ﻿
 namespace Xeltec.Trade.Interfaces
 {
-    public interface IProduction<T>
+    public interface IProduction<ITradeItem>
     {
         double UnitsProducedPerTick { get; }
-        T TradeItem { get; }
+        ITradeItem TradeItem { get; }
     }
 }
