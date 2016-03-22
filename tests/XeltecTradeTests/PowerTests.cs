@@ -1,6 +1,7 @@
 ﻿
 namespace XeltecTradeTests
 {
+    using Xeltec.Trade.Interfaces.TradeResources;
     using Xeltec.Trade.TradeResources;
 
     using Moq.AutoMock;
@@ -19,6 +20,7 @@ namespace XeltecTradeTests
         public void CanConstructPower()
         {
             var sut = autoMocker.CreateInstance<Power>();
+            Assert.NotNull(sut);
         }
 
         [Fact]

@@ -1,7 +1,8 @@
 ﻿
 namespace Xeltec.Trade
 {
-    using Xeltec.Trade.TradeResources;
+    using Xeltec.Trade.Interfaces;
+    using Xeltec.Trade.Interfaces.TradeResources;
 
     public class TradableStock<T> : ITradableStock<T> where T : ITradeItem
     {

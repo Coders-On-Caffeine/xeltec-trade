@@ -1,5 +1,5 @@
 ﻿
-namespace Xeltec.Trade
+namespace Xeltec.Trade.Interfaces
 {
     public interface IProduction<T>
     {

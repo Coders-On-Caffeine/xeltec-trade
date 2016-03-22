@@ -1,4 +1,4 @@
-﻿namespace Xeltec.Trade
+﻿namespace Xeltec.Trade.Interfaces.Factories
 {
     public interface ILocationFactory
     {

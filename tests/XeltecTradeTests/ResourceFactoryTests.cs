@@ -5,7 +5,8 @@ namespace XeltecTradeTests
     using System.Collections.Generic;
 
     using Xeltec.Trade;
-    using Xeltec.Trade.TradeResources;
+    using Xeltec.Trade.Interfaces;
+    using Xeltec.Trade.Interfaces.TradeResources;
 
     using Moq.AutoMock;
     using Xunit;
