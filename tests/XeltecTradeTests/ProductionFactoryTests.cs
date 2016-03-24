@@ -42,7 +42,7 @@ namespace XeltecTradeTests
 
             var result = sut.Create(stubPower);
 
-            Assert.IsAssignableFrom<Power>(result.TradeItem);
+            Assert.IsAssignableFrom<Power>(result.ItemProduced);
         }
 
         [Fact]

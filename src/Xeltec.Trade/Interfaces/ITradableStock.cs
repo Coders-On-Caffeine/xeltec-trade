@@ -9,5 +9,8 @@ namespace Xeltec.Trade.Interfaces
         double QuantityInStock { get; }
         double PricePerUnit { get; }
         T TradeItem { get; }
+
+        bool AddStock(double quantity);
+        bool RemoveStock(double quantity);
     }
 }
