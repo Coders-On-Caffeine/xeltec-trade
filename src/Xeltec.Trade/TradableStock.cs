@@ -1,6 +1,8 @@
 ﻿
 namespace Xeltec.Trade
 {
+    using System;
+
     using Xeltec.Trade.Interfaces;
     using Xeltec.Trade.Interfaces.TradeResources;
 
@@ -24,6 +26,34 @@ namespace Xeltec.Trade
         public T TradeItem
         {
             get; private set;
+        }
+
+        public bool AddStock(double quantity)
+        {
+            if(quantity <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(quantity));
+            }
+            QuantityInStock += quantity;
+
+            return true;
+        }
+
+        public bool RemoveStock(double quantity)
+        {
+            if (quantity <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(quantity));
+            }
+
+            if(quantity > QuantityInStock)
+            {
+                return false;
+            }
+
+            QuantityInStock -= quantity;
+
+            return true;
         }
     }
 }

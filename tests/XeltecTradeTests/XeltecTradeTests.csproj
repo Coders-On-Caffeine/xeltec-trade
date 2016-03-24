@@ -75,6 +75,7 @@
     <Compile Include="ProductionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceFactoryTests.cs" />
+    <Compile Include="TradableStockTests.cs" />
     <Compile Include="TradeNetworkTests.cs" />
   </ItemGroup>
   <ItemGroup>
