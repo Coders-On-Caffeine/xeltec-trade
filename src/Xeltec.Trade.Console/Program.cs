@@ -45,6 +45,16 @@ namespace Xeltec.Trade.Console
                         Console.WriteLine(String.Format(" -- Requires {0} units of {1}", productionRequires.QuantityRequired, productionRequires.ItemRequired.Description));
                     }
                 }
+                PrintFactoryTradableStock(f);
+            }
+        }
+
+        private void PrintFactoryTradableStock(IResourceFactory resourceFactory)
+        {
+            Console.WriteLine(string.Format(" -- Tradable Stock -- "));
+            foreach(var tradeItem in resourceFactory.TradableStockItems)
+            {
+                Console.WriteLine(string.Format(" -- {0} : [{1}] : {2}", tradeItem.TradeItem.Description, tradeItem.QuantityInStock, tradeItem.PricePerUnit));
             }
         }
     }
