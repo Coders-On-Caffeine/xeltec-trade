@@ -55,6 +55,8 @@ namespace Xeltec.Trade.Factories
 
                 IList<ITradableStock<ITradeItem>> tradableStockList = new List<ITradableStock<ITradeItem>>();
                 tradableStockList.Add(new TradableStock<ITradeItem>(new Power()));
+                tradableStockList.Add(new TradableStock<ITradeItem>(new Water()));
+                tradableStockList.Add(new TradableStock<ITradeItem>(new Food()));
 
                 var location = new Location(random.Next(0, 100), random.Next(0, 100));
 
@@ -65,4 +67,4 @@ namespace Xeltec.Trade.Factories
             return resourceFactories;
         }
     }
-}
+} 
