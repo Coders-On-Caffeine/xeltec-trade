@@ -2,6 +2,7 @@
 namespace Xeltec.Trade.Factories
 {
     using System;
+    using System.Collections.Generic;
 
     using Xeltec.Trade.Interfaces;
     using Xeltec.Trade.Interfaces.Factories;
@@ -21,13 +22,31 @@ namespace Xeltec.Trade.Factories
             switch(tradeItemProduced.GetType().Name)
             {
                 case nameof(Power):
-                    productionItem = new Production(tradeItemProduced, 2);
+                    var powerProductionRequires = new List<IProductionRequires>()
+                    {
+                        new ProductionRequires(new Water(), 1),
+                        new ProductionRequires(new Food(), 1)
+                    };
+
+                    productionItem = new Production(tradeItemProduced, 2, powerProductionRequires);
                     break;
                 case nameof(Water):
-                    productionItem = new Production(tradeItemProduced, 4);
+                    var waterProductionRequires = new List<IProductionRequires>()
+                    {
+                        new ProductionRequires(new Food(), 1),
+                        new ProductionRequires(new Power(), 1)
+                    };
+
+                    productionItem = new Production(tradeItemProduced, 4, waterProductionRequires);
                     break;
                 case nameof(Food):
-                    productionItem = new Production(tradeItemProduced, 5);
+                    var foodProductionRequires = new List<IProductionRequires>()
+                    {
+                        new ProductionRequires(new Water(), 1),
+                        new ProductionRequires(new Power(), 1)
+                    };
+
+                    productionItem = new Production(tradeItemProduced, 5, foodProductionRequires);
                     break;
                 default:
                     throw new ArgumentException("Unexpected Argument", nameof(tradeItemProduced));
