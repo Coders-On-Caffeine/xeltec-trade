@@ -61,6 +61,9 @@ namespace Xeltec.Trade.Factories
                 var location = new Location(random.Next(0, 100), random.Next(0, 100));
 
                 var resourceFactory = new ResourceFactory(productionList, tradableStockList, resourceFactoryStartingConfiguration, location);
+                resourceFactory.AddStock(new Power(), random.NextDouble() * 99);
+                resourceFactory.AddStock(new Water(), random.NextDouble() * 99);
+                resourceFactory.AddStock(new Food(), random.NextDouble() * 99);
                 resourceFactories.Add(resourceFactory);
             }
 

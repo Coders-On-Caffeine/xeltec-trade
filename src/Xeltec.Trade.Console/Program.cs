@@ -2,6 +2,7 @@
 namespace Xeltec.Trade.Console
 {
     using System;
+    using System.Linq;
 
     using Xeltec.Trade.Factories;
     using Xeltec.Trade.Interfaces;
@@ -23,17 +24,25 @@ namespace Xeltec.Trade.Console
             var factoryList = ResourceFactoryFactory.CreateRandom(10);
 
             TradeNetwork = new TradeNetwork(factoryList);
+            TradeNetwork.CalculatePricesForTradeNetwork();            
         }
 
         public void Execute()
         {
             Console.WriteLine("Welcome to Xeltec Trade Network");
             PrintTradeNetworkInfo();
-            Console.ReadKey();
+            TradeNetwork.Tick();
+            PrintTradeNetworkInfo();
+            while(Console.ReadKey().Key != ConsoleKey.X)
+            {
+                TradeNetwork.Tick();
+                PrintTradeNetworkInfo();
+            }
         }
 
         private void PrintTradeNetworkInfo()
         {
+            Console.Clear();
             foreach(var f in TradeNetwork.Factories)
             {
                 Console.WriteLine(string.Format("Factory at [{0},{1}] has Credits: {2}", f.Location.X, f.Location.Y, f.Credits));
@@ -54,7 +63,8 @@ namespace Xeltec.Trade.Console
             Console.WriteLine(string.Format(" -- Tradable Stock -- "));
             foreach(var tradeItem in resourceFactory.TradableStockItems)
             {
-                Console.WriteLine(string.Format(" -- {0} : [{1}] : {2}", tradeItem.TradeItem.Description, tradeItem.QuantityInStock, tradeItem.PricePerUnit));
+                var storage = resourceFactory.ResourceStorage.First(item => item.TradeItem.GetType() == tradeItem.TradeItem.GetType());
+                Console.WriteLine(string.Format(" -- {0} : [{1}/{2}] : {3}", tradeItem.TradeItem.Description, tradeItem.QuantityInStock, storage.StorageCapacity, tradeItem.PricePerUnit));
             }
         }
     }
