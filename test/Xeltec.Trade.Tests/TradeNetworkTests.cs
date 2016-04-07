@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace XeltecTradeTests
+namespace Xeltec.Trade.Tests
 {
     using System;
     using System.Collections.Generic;

@@ -1,5 +1,5 @@
 ﻿
-namespace XeltecTradeTests
+namespace Xeltec.Trade.Tests
 {
     using Xeltec.Trade.Interfaces.TradeResources;
     using Xeltec.Trade.TradeResources;
