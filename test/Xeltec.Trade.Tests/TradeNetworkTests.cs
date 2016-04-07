@@ -1,7 +1,7 @@
 ﻿
 
 
-namespace XeltecTradeTests
+namespace Xeltec.Trade.Tests
 {
     using System;
     using System.Collections.Generic;
@@ -44,8 +44,8 @@ namespace XeltecTradeTests
 
             var sut = autoMocker.CreateInstance<TradeNetwork>();
 
-            Assert.Contains<IResourceFactory>(resourceFactory1.Object, sut.Factories);
-            Assert.Contains<IResourceFactory>(resourceFactory2.Object, sut.Factories);
+            Assert.Contains(resourceFactory1.Object, sut.Factories);
+            Assert.Contains(resourceFactory2.Object, sut.Factories);
         }
 
         [Fact]
