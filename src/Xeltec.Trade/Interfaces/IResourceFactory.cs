@@ -10,5 +10,7 @@ namespace Xeltec.Trade.Interfaces
         ILocation Location { get; }
         IList<ITradableStock<ITradeItem>> TradableStockItems { get; }
         IList<IProduction<ITradeItem>> Production { get; }
+        IList<IStorage> ResourceStorage { get; }
+        void Tick();
     }
 }

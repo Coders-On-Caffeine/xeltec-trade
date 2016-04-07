@@ -15,7 +15,7 @@ namespace Xeltec.Trade
 
         public double PricePerUnit
         {
-            get; private set;
+            get; set;
         }
 
         public double QuantityInStock

@@ -6,5 +6,8 @@ namespace Xeltec.Trade.Interfaces
     public interface ITradeNetwork
     {
         IList<IResourceFactory> Factories { get; }
+        void CalculatePricesForTradeNetwork();
+
+        void Tick();
     }
 }

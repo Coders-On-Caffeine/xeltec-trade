@@ -41,16 +41,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\ProductionFactory.cs" />
+    <Compile Include="IList.cs" />
     <Compile Include="Interfaces\Factories\IProductionFactory.cs" />
     <Compile Include="Interfaces\Factories\IResourceFactoryFactory.cs" />
     <Compile Include="Interfaces\IProductionRequires.cs" />
     <Compile Include="Interfaces\IResourceFactoryConfiguration.cs" />
     <Compile Include="Interfaces\ITradableStock.cs" />
     <Compile Include="Interfaces\IProduction.cs" />
+    <Compile Include="IStorage.cs" />
     <Compile Include="Production.cs" />
     <Compile Include="Factories\ResourceFactoryFactory.cs" />
     <Compile Include="ProductionRequires.cs" />
     <Compile Include="ResourceFactoryConfiguration.cs" />
+    <Compile Include="Storage.cs" />
     <Compile Include="TradableStock.cs" />
     <Compile Include="TradeResources\Food.cs" />
     <Compile Include="ResourceFactory.cs" />

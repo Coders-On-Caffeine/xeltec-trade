@@ -7,7 +7,7 @@ namespace Xeltec.Trade.Interfaces
     public interface ITradableStock<T> where T : ITradeItem
     {
         double QuantityInStock { get; }
-        double PricePerUnit { get; }
+        double PricePerUnit { get; set; }
         T TradeItem { get; }
 
         bool AddStock(double quantity);
