@@ -16,6 +16,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Xeltec.Trade", "src\Xeltec.
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Xeltec.Trade.Tests", "test\Xeltec.Trade.Tests\Xeltec.Trade.Tests.xproj", "{2829EA0F-D534-4770-8D2C-0231B264846E}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Xeltec.Trade.Console", "src\Xeltec.Trade.Console\Xeltec.Trade.Console.xproj", "{D2BDCF0D-4038-4CE7-A2AF-CED0E09D060B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{2829EA0F-D534-4770-8D2C-0231B264846E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2829EA0F-D534-4770-8D2C-0231B264846E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2829EA0F-D534-4770-8D2C-0231B264846E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BDCF0D-4038-4CE7-A2AF-CED0E09D060B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BDCF0D-4038-4CE7-A2AF-CED0E09D060B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BDCF0D-4038-4CE7-A2AF-CED0E09D060B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BDCF0D-4038-4CE7-A2AF-CED0E09D060B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +43,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2E3D441F-9ED8-4E7F-81B6-C4C7D633409E} = {634615D4-1694-4EB9-A81A-142718E18B7E}
 		{2829EA0F-D534-4770-8D2C-0231B264846E} = {B9D164D1-AF83-4FFE-BE47-6D0A08CFBAA3}
+		{D2BDCF0D-4038-4CE7-A2AF-CED0E09D060B} = {634615D4-1694-4EB9-A81A-142718E18B7E}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,20 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Xeltec.Trade",
+  "authors": [ "tom.west" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "Xeltec.Trade": "1.0.0-*"
+  },
+  
+  "commands": {
+    "Xeltec.Trade.Console": "Xeltec.Trade.Console"
+  },
+
+  "frameworks": {
+    "dnx451": { }
+  }
+}
